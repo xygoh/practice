@@ -1,4 +1,5 @@
 # various transformations of a 2d array
+# works for nxn arrays
 
 # rotates a 2d array 90 degrees clockwise
 # opposite of counter
