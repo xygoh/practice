@@ -1,27 +1,28 @@
 # various transformations of a 2d array
-# works for nxn arrays
+# version 1: works for nxn
+# version 2: works for nxm
 
 # rotates a 2d array 90 degrees clockwise
 # opposite of counter
 def rotateImage_clock(a):
-	b=[row[:] for row in a]
-	w=len(a[0])
-	h=len(a)
-	for row in range(h):
-		for col in range(w):
-			b[col][w-1-row]=a[row][col]
-	return b
+    w=len(a[0])
+    h=len(a)
+    b=[x[:] for x in [[None]*h]*w] # initialise all to None
+    for row in range(w):
+        for col in range(h):
+                    b[row][col]=a[h-1-col][row]
+    return b
 
 # rotates a 2d array 90 degrees counter clockwise
 # row is col, col is row backwards
 def rotateImage_counter(a):
-  b=[row[:] for row in a]
-    w=len(a[0])
-    h=len(a)
-    for row in range(h):
-      for col in range(w):
-        b[row][col]=a[col][w-1-row]
-  return b
+	w=len(a[0])
+	h=len(a)
+	b=[x[:] for x in [[None]*h]*w] # initialise all to None
+	for row in range(w):
+		for col in range(h):
+			b[row][col]=a[col][w-1-row]
+	return b
 
 # horizontal flip a 2d array
 # row same, col backwards
@@ -44,14 +45,4 @@ def vertical_flip(a):
 		for col in range(w):
 			b[row][col]=a[h-1-row][col]
 	return b
-  
-# translates array up a row
-def translateUp(a):
-	b=[row[:] for row in a]
-	w=len(a[0])
-	h=len(a)
-	for row in range(h):
-		for col in range(w):
-			b[row][col]=a[(row+1)%h][col]
-	return b
-  
+
