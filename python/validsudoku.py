@@ -1,4 +1,7 @@
 # tfw ur a n00b ._.
+'''
+checks if sudoku is valid. ie. no common numbers in rows,cols and 3x3 boxes
+'''
 
 def check(thing,e,hm):
     if thing in hm:
